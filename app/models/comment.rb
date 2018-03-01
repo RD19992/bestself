@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  has_many   :replies,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
