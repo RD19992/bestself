@@ -15,7 +15,7 @@
 
       <% @sources.each do |source| %>
       <tr>
-        <td><%= source.user_id %></td>
+        <td><%= source.user.email %></td>
         <td>
           <a href="/sources/<%= source.id %>" class="btn btn-primary">Show</a>
           <a href="/sources/<%= source.id %>/edit" class="btn btn-warning">Edit</a>
