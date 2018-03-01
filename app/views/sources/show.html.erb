@@ -14,12 +14,14 @@
       <a href="/sources" class="btn btn-primary">
         Back
       </a>
-      <a href="/sources/<%= @source.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_source/<%= @source.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @source.user %>
+        <a href="/sources/<%= @source.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_source/<%= @source.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
