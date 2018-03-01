@@ -51,7 +51,7 @@
           Source user
         </label>
 
-        <input type="text" id="source_user_id" name="source_user_id" placeholder="Source user" class="form-control" value="<%= @comment.source_user_id %>">
+        <%= select_tag(:source_user_id, options_from_collection_for_select(Source.all, :id, :user_id, @comment.source_user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for target_user_id -->
