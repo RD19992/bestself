@@ -47,8 +47,6 @@ class SourcesController < ApplicationController
   def update
     @source = Source.find(params[:id])
 
-    @source.user_id = params[:user_id]
-
     save_status = @source.save
 
     if save_status == true
