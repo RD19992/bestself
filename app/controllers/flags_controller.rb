@@ -1,6 +1,7 @@
 class FlagsController < ApplicationController
   def index
-    @flags = Flag.page(params[:page]).per(10)
+    @q = Flag.ransack(params[:q])
+    @flags = @q.result(:distinct => true).includes(:comment).page(params[:page]).per(10)
 
     render("flags/index.html.erb")
   end

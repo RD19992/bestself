@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   def index
-    @targets = Target.page(params[:page]).per(10)
+    @q = Target.ransack(params[:q])
+    @targets = @q.result(:distinct => true).includes(:user, :comments).page(params[:page]).per(10)
 
     render("targets/index.html.erb")
   end

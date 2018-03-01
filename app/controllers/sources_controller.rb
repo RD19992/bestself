@@ -10,7 +10,8 @@ class SourcesController < ApplicationController
   end
 
   def index
-    @sources = Source.page(params[:page]).per(10)
+    @q = Source.ransack(params[:q])
+    @sources = @q.result(:distinct => true).includes(:user, :comments).page(params[:page]).per(10)
 
     render("sources/index.html.erb")
   end
