@@ -20,7 +20,7 @@
       <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-        <td><%= comment.type_id %></td>
+        <td><%= comment.type.name %></td>
         <td><%= comment.category_id %></td>
         <td><%= comment.source_user_id %></td>
         <td><%= comment.target_user_id %></td>
