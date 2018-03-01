@@ -17,7 +17,13 @@
       <% @flags.each do |flag| %>
       <tr>
         <td><%= flag.user_id %></td>
-        <td><%= flag.comment.content %></td>
+        <td>
+          <% if flag.comment.present? %>
+            <a href="/comments/<%= flag.comment.id %>">
+              <%= flag.comment.content %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/flags/<%= flag.id %>" class="btn btn-primary">Show</a>
           <a href="/flags/<%= flag.id %>/edit" class="btn btn-warning">Edit</a>

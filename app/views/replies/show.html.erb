@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Comment</dt>
-      <dd><%= @reply.comment_id %></dd>
+      <dd>
+        <% if @reply.comment.present? %>
+          <a href="/comments/<%= @reply.comment_id %>">
+            <%= @reply.comment.content %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Content</dt>
       <dd><%= @reply.content %></dd>

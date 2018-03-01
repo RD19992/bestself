@@ -15,7 +15,13 @@
 
       <% @sources.each do |source| %>
       <tr>
-        <td><%= source.user.email %></td>
+        <td>
+          <% if source.user.present? %>
+            <a href="/users/<%= source.user.id %>">
+              <%= source.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/sources/<%= source.id %>" class="btn btn-primary">Show</a>
           

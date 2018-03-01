@@ -15,7 +15,13 @@
 
       <% @targets.each do |target| %>
       <tr>
-        <td><%= target.user.email %></td>
+        <td>
+          <% if target.user.present? %>
+            <a href="/users/<%= target.user.id %>">
+              <%= target.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/targets/<%= target.id %>" class="btn btn-primary">Show</a>
           <a href="/targets/<%= target.id %>/edit" class="btn btn-warning">Edit</a>

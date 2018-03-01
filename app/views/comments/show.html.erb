@@ -9,16 +9,40 @@
       <dd><%= @comment.content %></dd>
 
       <dt>Type</dt>
-      <dd><%= @comment.type_id %></dd>
+      <dd>
+        <% if @comment.type.present? %>
+          <a href="/types/<%= @comment.type_id %>">
+            <%= @comment.type.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Category</dt>
-      <dd><%= @comment.category_id %></dd>
+      <dd>
+        <% if @comment.category.present? %>
+          <a href="/categories/<%= @comment.category_id %>">
+            <%= @comment.category.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Source user</dt>
-      <dd><%= @comment.source_user_id %></dd>
+      <dd>
+        <% if @comment.source_user.present? %>
+          <a href="/sources/<%= @comment.source_user_id %>">
+            <%= @comment.source_user.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Target user</dt>
-      <dd><%= @comment.target_user_id %></dd>
+      <dd>
+        <% if @comment.target_user.present? %>
+          <a href="/targets/<%= @comment.target_user_id %>">
+            <%= @comment.target_user.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

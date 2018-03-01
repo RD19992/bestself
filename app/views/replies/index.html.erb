@@ -16,7 +16,13 @@
 
       <% @replies.each do |reply| %>
       <tr>
-        <td><%= reply.comment.content %></td>
+        <td>
+          <% if reply.comment.present? %>
+            <a href="/comments/<%= reply.comment.id %>">
+              <%= reply.comment.content %>
+            </a>
+          <% end %>
+        </td>
         <td><%= reply.content %></td>
         <td>
           <a href="/replies/<%= reply.id %>" class="btn btn-primary">Show</a>

@@ -9,7 +9,13 @@
       <dd><%= @flag.user_id %></dd>
 
       <dt>Comment</dt>
-      <dd><%= @flag.comment_id %></dd>
+      <dd>
+        <% if @flag.comment.present? %>
+          <a href="/comments/<%= @flag.comment_id %>">
+            <%= @flag.comment.content %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

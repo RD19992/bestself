@@ -20,10 +20,34 @@
       <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-        <td><%= comment.type.name %></td>
-        <td><%= comment.category.name %></td>
-        <td><%= comment.source_user.user_id %></td>
-        <td><%= comment.target_user.user_id %></td>
+        <td>
+          <% if comment.type.present? %>
+            <a href="/types/<%= comment.type.id %>">
+              <%= comment.type.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if comment.category.present? %>
+            <a href="/categories/<%= comment.category.id %>">
+              <%= comment.category.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if comment.source_user.present? %>
+            <a href="/sources/<%= comment.source_user.id %>">
+              <%= comment.source_user.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if comment.target_user.present? %>
+            <a href="/targets/<%= comment.target_user.id %>">
+              <%= comment.target_user.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>

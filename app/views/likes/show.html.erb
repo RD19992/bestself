@@ -9,7 +9,13 @@
       <dd><%= @like.user_id %></dd>
 
       <dt>Comment</dt>
-      <dd><%= @like.comment_id %></dd>
+      <dd>
+        <% if @like.comment.present? %>
+          <a href="/comments/<%= @like.comment_id %>">
+            <%= @like.comment.content %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
