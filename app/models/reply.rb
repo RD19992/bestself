@@ -5,4 +5,6 @@ class Reply < ApplicationRecord
 
   # Validations
 
+  validates :content, :presence => true
+
 end
