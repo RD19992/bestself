@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Flags
+    <a href="/flags/new" class="btn btn-lg btn-success">New Flag</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Comment</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @flags.each do |flag| %>
+      <tr>
+        <td><%= flag.user_id %></td>
+        <td><%= flag.comment_id %></td>
+        <td>
+          <a href="/flags/<%= flag.id %>" class="btn btn-primary">Show</a>
+          <a href="/flags/<%= flag.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_flag/<%= flag.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

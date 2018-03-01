@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Flag resource:
+  # CREATE
+  get "/flags/new", :controller => "flags", :action => "new"
+  post "/create_flag", :controller => "flags", :action => "create"
+
+  # READ
+  get "/flags", :controller => "flags", :action => "index"
+  get "/flags/:id", :controller => "flags", :action => "show"
+
+  # UPDATE
+  get "/flags/:id/edit", :controller => "flags", :action => "edit"
+  post "/update_flag/:id", :controller => "flags", :action => "update"
+
+  # DELETE
+  get "/delete_flag/:id", :controller => "flags", :action => "destroy"
+  #------------------------------
+
   # Routes for the Like resource:
   # CREATE
   get "/likes/new", :controller => "likes", :action => "new"
