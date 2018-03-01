@@ -22,7 +22,7 @@
         <td><%= comment.content %></td>
         <td><%= comment.type.name %></td>
         <td><%= comment.category.name %></td>
-        <td><%= comment.source_user_id %></td>
+        <td><%= comment.source_user.user_id %></td>
         <td><%= comment.target_user_id %></td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
