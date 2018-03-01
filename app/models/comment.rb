@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  has_many   :flags,
+             :dependent => :destroy
+
   has_many   :likes,
              :dependent => :destroy
 
