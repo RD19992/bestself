@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  belongs_to :source_user,
+             :class_name => "Source"
+
   belongs_to :category
 
   belongs_to :type
