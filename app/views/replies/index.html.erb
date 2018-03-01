@@ -16,7 +16,7 @@
 
       <% @replies.each do |reply| %>
       <tr>
-        <td><%= reply.comment_id %></td>
+        <td><%= reply.comment.content %></td>
         <td><%= reply.content %></td>
         <td>
           <a href="/replies/<%= reply.id %>" class="btn btn-primary">Show</a>
