@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @comment.errors.any? %>
+  <% @comment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Comment #<%= @comment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_comment/<%= @comment.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <input type="text" id="content" name="content" placeholder="Content" class="form-control" value="<%= @comment.content %>">
+      </div>
+
+      <!-- Label and input for type_id -->
+      <div class="form-group">
+        <label for="type_id" class="control-label">
+          Type
+        </label>
+
+        <input type="text" id="type_id" name="type_id" placeholder="Type" class="form-control" value="<%= @comment.type_id %>">
+      </div>
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @comment.category_id %>">
+      </div>
+
+      <!-- Label and input for source_user_id -->
+      <div class="form-group">
+        <label for="source_user_id" class="control-label">
+          Source user
+        </label>
+
+        <input type="text" id="source_user_id" name="source_user_id" placeholder="Source user" class="form-control" value="<%= @comment.source_user_id %>">
+      </div>
+
+      <!-- Label and input for target_user_id -->
+      <div class="form-group">
+        <label for="target_user_id" class="control-label">
+          Target user
+        </label>
+
+        <input type="text" id="target_user_id" name="target_user_id" placeholder="Target user" class="form-control" value="<%= @comment.target_user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Comment
+      </button>
+      or
+      <a href="/comments/<%= @comment.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

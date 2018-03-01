@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Comment #<%= @comment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Content</dt>
+      <dd><%= @comment.content %></dd>
+
+      <dt>Type</dt>
+      <dd><%= @comment.type_id %></dd>
+
+      <dt>Category</dt>
+      <dd><%= @comment.category_id %></dd>
+
+      <dt>Source user</dt>
+      <dd><%= @comment.source_user_id %></dd>
+
+      <dt>Target user</dt>
+      <dd><%= @comment.target_user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/comments" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/comments/<%= @comment.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_comment/<%= @comment.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
