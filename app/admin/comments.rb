@@ -1,4 +1,6 @@
 ActiveAdmin.register Comment do
+
+ permit_params :content, :type_id, :category_id, :source_user_id, :target_user_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
