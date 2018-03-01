@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  belongs_to :target_user,
+             :class_name => "Target"
+
   belongs_to :source_user,
              :class_name => "Source"
 
