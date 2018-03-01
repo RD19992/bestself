@@ -6,6 +6,7 @@ class TargetsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @target = Target.find(params[:id])
 
     render("targets/show.html.erb")

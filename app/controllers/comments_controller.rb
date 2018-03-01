@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @flag = Flag.new
+    @like = Like.new
+    @reply = Reply.new
     @comment = Comment.find(params[:id])
 
     render("comments/show.html.erb")

@@ -16,6 +16,7 @@ class SourcesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @source = Source.find(params[:id])
 
     render("sources/show.html.erb")
