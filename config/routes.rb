@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "comments#index"
   # Routes for the Target resource:
   # CREATE
   get "/targets/new", :controller => "targets", :action => "new"
