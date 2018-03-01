@@ -23,7 +23,7 @@
         <td><%= comment.type.name %></td>
         <td><%= comment.category.name %></td>
         <td><%= comment.source_user.user_id %></td>
-        <td><%= comment.target_user_id %></td>
+        <td><%= comment.target_user.user_id %></td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
