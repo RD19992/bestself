@@ -1,6 +1,6 @@
 class FlagsController < ApplicationController
   def index
-    @flags = Flag.all
+    @flags = Flag.page(params[:page]).per(10)
 
     render("flags/index.html.erb")
   end
