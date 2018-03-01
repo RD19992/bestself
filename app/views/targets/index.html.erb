@@ -15,7 +15,7 @@
 
       <% @targets.each do |target| %>
       <tr>
-        <td><%= target.user_id %></td>
+        <td><%= target.user.email %></td>
         <td>
           <a href="/targets/<%= target.id %>" class="btn btn-primary">Show</a>
           <a href="/targets/<%= target.id %>/edit" class="btn btn-warning">Edit</a>
