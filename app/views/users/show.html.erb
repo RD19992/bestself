@@ -20,3 +20,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many sources -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Sources
+      </li>
+
+      <% @user.sources.each do |source| %>
+        <li class="list-group-item">
+          <a href="/sources/<%= source.id %>">
+            <%= source.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/sources/<%= source.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/sources/<%= source.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_source/<%= source.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many targets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Targets
+      </li>
+
+      <% @user.targets.each do |target| %>
+        <li class="list-group-item">
+          <a href="/targets/<%= target.id %>">
+            <%= target.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/targets/<%= target.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/targets/<%= target.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_target/<%= target.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
