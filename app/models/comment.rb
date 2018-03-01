@@ -5,4 +5,6 @@ class Comment < ApplicationRecord
 
   # Validations
 
+  validates :type_id, :presence => true
+
 end
