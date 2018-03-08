@@ -33,6 +33,7 @@ class SourcesController < ApplicationController
     @source = Source.new
 
     @source.user_id = params[:user_id]
+    @source.username = params[:username]
 
     save_status = @source.save
 
@@ -58,6 +59,7 @@ class SourcesController < ApplicationController
 
   def update
     @source = Source.find(params[:id])
+    @source.username = params[:username]
 
     save_status = @source.save
 

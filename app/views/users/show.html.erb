@@ -11,6 +11,9 @@
       <dt>Password</dt>
       <dd><%= @user.password %></dd>
 
+      <dt>Username</dt>
+      <dd><%= @user.username %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -54,29 +57,29 @@
   </div>
 </div>
 
-<!-- A User has many targets -->
+<!-- A User has many comments -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Targets
+        Comments
       </li>
 
-      <% @user.targets.each do |target| %>
+      <% @user.comments.each do |comment| %>
         <li class="list-group-item">
-          <a href="/targets/<%= target.id %>">
-            <%= target.user_id %>
+          <a href="/comments/<%= comment.id %>">
+            <%= comment.content %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/targets/<%= target.id %>" class="btn btn-primary">
+            <a href="/comments/<%= comment.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == target.user %>
-              <a href="/targets/<%= target.id %>/edit" class="btn btn-warning">
+            <%if current_user == comment.user %>
+              <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
-              <a href="/delete_target/<%= target.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             <% end %>
