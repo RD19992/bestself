@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @q = Comment.ransack(params[:q])
-    @comments = @q.result(:distinct => true).includes(:replies, :likes, :flags, :type, :category, :source_user, :target_user).page(params[:page]).per(10)
+    @comments = @q.result(:distinct => true).includes(:user, :replies, :likes, :flags, :type, :category, :source_user).page(params[:page]).per(10)
 
     render("comments/index.html.erb")
   end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     @comment.type_id = params[:type_id]
     @comment.category_id = params[:category_id]
     @comment.source_user_id = params[:source_user_id]
-    @comment.target_user_id = params[:target_user_id]
+    @comment.user_id = params[:user_id]
 
     save_status = @comment.save
 
@@ -59,7 +59,7 @@ class CommentsController < ApplicationController
     @comment.type_id = params[:type_id]
     @comment.category_id = params[:category_id]
     @comment.source_user_id = params[:source_user_id]
-    @comment.target_user_id = params[:target_user_id]
+    @comment.user_id = params[:user_id]
 
     save_status = @comment.save
 

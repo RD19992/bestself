@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Direct associations
 
-  has_many   :targets,
+  has_many   :comments,
              :dependent => :destroy
 
   has_many   :sources,
