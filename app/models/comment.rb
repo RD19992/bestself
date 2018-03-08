@@ -1,9 +1,6 @@
 class Comment < ApplicationRecord
   # Direct associations
 
-  belongs_to :target_user,
-             :class_name => "Target"
-
   belongs_to :source_user,
              :class_name => "Source"
 
@@ -20,6 +17,8 @@ class Comment < ApplicationRecord
   has_many   :replies,
              :dependent => :destroy
 
+  belongs_to :user
+
   # Indirect associations
 
   # Validations
@@ -30,8 +29,8 @@ class Comment < ApplicationRecord
 
   validates :source_user_id, :presence => true
 
-  validates :target_user_id, :presence => true
-
   validates :type_id, :presence => true
+
+  validates :user_id, :presence => true
 
 end
