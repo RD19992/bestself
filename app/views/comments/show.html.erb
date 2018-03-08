@@ -35,11 +35,11 @@
         <% end %>
       </dd>
 
-      <dt>Target user</dt>
+      <dt>User</dt>
       <dd>
-        <% if @comment.target_user.present? %>
-          <a href="/targets/<%= @comment.target_user_id %>">
-            <%= @comment.target_user.user_id %>
+        <% if @comment.user.present? %>
+          <a href="/users/<%= @comment.user_id %>">
+            <%= @comment.user.email %>
           </a>
         <% end %>
       </dd>
